@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TouchableHighlight, GestureResponderEvent } fro
 import { LinearGradient } from 'expo-linear-gradient';
 import { ButtonProps } from '../types/button';
 
-const MainButton = ({ onPress, mainText, topText = "", bottomText = "", fontSize }: ButtonProps) => {
+const MainButton = ({ onPress, mainText, topText = "", bottomText = "" }: ButtonProps) => {
   return (
     <TouchableHighlight
       style={[styles.container, { borderRadius: 5 }]}
@@ -15,11 +15,11 @@ const MainButton = ({ onPress, mainText, topText = "", bottomText = "", fontSize
         style={styles.linearGradient}>
         <Text style={styles.textTop}>{topText}</Text>
         <View>
-          <Text style={[styles.mainText, !!fontSize && {fontSize}]}>{mainText}</Text>
-      </View>
-      <Text style={styles.textBottom}>{bottomText}</Text>
-    </LinearGradient>
-    </TouchableHighlight >
+          <Text style={styles.mainText}>{mainText}</Text>
+        </View>
+        <Text style={styles.textBottom}>{bottomText}</Text>
+      </LinearGradient>
+    </TouchableHighlight>
   )
 }
 
@@ -39,24 +39,24 @@ const styles = StyleSheet.create({
   },
   mainText: {
     color: "#fff",
-    fontSize: 36,
-    // fontWeight: "bold",
+    fontSize: 24,
+    fontWeight: "bold",
     fontFamily: "Arial",
   },
   textTop: {
     position: "absolute",
-    right: 2,
-    top: 2,
+    right: 5,
+    top: 5,
     color: "orange",
-    fontSize: 14,
+    fontSize: 12,
     fontFamily: "Arial",
   },
   textBottom: {
     position: "absolute",
-    right: 2,
-    bottom: 2,
+    right: 5,
+    bottom: 5,
     color: "green",
-    fontSize: 16,
+    fontSize: 12,
     fontFamily: "Arial",
   },
 });

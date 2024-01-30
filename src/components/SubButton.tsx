@@ -3,24 +3,23 @@ import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ButtonProps } from '../types/button';
 
-const SubButton = ({ onPress, mainText, topRightText = "", topLeftText = "", bgColor, fontColor }: ButtonProps) => {
+const SubButton = ({ onPress, mainText, topText = "" }: ButtonProps) => {
   return (
     <View style={styles.container}>
-      <View style={styles.textTopContainer}>
-        {topLeftText && <Text style={styles.textLeftTop} >{topLeftText}</Text>}
-        {topRightText && <Text style={styles.textRightTop} >{topRightText}</Text>}
-      </View>
+      <Text style={styles.textTop} >{topText}</Text>
       <TouchableHighlight
-        style={styles.TouchableHighlight}
+        style={[styles.button, { borderRadius: 5 }]}
         activeOpacity={0.1}
         underlayColor="#FFA800"
         onPress={onPress}
       >
-        <LinearGradient
-          colors={bgColor ? [bgColor, bgColor] : ['#E4E6F3', '#80828D', '#5E5F61']}
-          style={styles.linearGradient}>
-          <Text style={[styles.mainText, !!fontColor && { color: fontColor }]}>{mainText}</Text>
-        </LinearGradient>
+        <View>
+          <LinearGradient
+            colors={['#E4E6F3', '#80828D', '#5E5F61']}
+            style={styles.linearGradient}>
+            <Text style={styles.mainText}>{mainText}</Text>
+          </LinearGradient>
+        </View>
       </TouchableHighlight>
     </View>
   )
@@ -31,15 +30,16 @@ export default SubButton;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
-  TouchableHighlight: {
-    borderRadius: 5
+  button: {
+    flex: 1,
+    justifyContent: "flex-end"
   },
   linearGradient: {
     justifyContent: "center",
     alignItems: "center",
-    height: 30,
+    height: 34,
     margin: 1,
     borderRadius: 2
   },
@@ -49,20 +49,11 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     fontFamily: "Arial",
   },
-  textTopContainer: {
-    flexDirection: "row",
-    marginTop: 2,
-  },
-  textLeftTop: {
+  textTop: {
     flex: 1,
     justifyContent: "center",
     textAlign: "center",
     color: "orange",
-    fontSize: 14,
-    fontFamily: "Arial",
-  },
-  textRightTop: {
-    color: "green",
     fontSize: 14,
     fontFamily: "Arial",
   },
