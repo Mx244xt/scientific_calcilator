@@ -8,9 +8,9 @@ type Props = {
 const Disply = ({ text }: Props) => {
   return (
     <ScrollView style={styles.container}>
-      {text.map((item) => {
+      {text.map((item, i) => {
         return (
-          <Text style={styles.text} adjustsFontSizeToFit>{item}</Text>
+          <Text key={i} style={styles.text} adjustsFontSizeToFit>{item}</Text>
         )
       })}
     </ScrollView>
