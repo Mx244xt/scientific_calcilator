@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ButtonProps } from '../types/button';
 
-const SubButton = ({ onPress, mainText, topRightText = "", topLeftText = "", bgColor, fontColor }: ButtonProps) => {
+const SubButton = ({ setState, onPress, mainText, topRightText = "", topLeftText = "", bgColor, fontColor }: ButtonProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.textTopContainer}>
@@ -14,7 +14,10 @@ const SubButton = ({ onPress, mainText, topRightText = "", topLeftText = "", bgC
         style={styles.TouchableHighlight}
         activeOpacity={0.1}
         underlayColor="#FFA800"
-        onPress={onPress}
+        onPress={() => {
+          onPress;
+          { setState && setState(mainText) };
+        }}
       >
         <LinearGradient
           colors={bgColor ? [bgColor, bgColor] : ['#E4E6F3', '#80828D', '#5E5F61']}

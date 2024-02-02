@@ -1,24 +1,27 @@
-import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, GestureResponderEvent } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import React from 'react';
+import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import { ButtonProps } from '../types/button';
 
-const MainButton = ({ onPress, mainText, topText = "", bottomText = "", fontSize }: ButtonProps) => {
+const MainButton = ({ setState, onPress, mainText, topText = "", bottomText = "", fontSize }: ButtonProps) => {
   return (
     <TouchableHighlight
       style={[styles.container, { borderRadius: 5 }]}
       activeOpacity={0.5}
       underlayColor="#FFA800"
-      onPress={onPress}>
+      onPress={() => {
+        onPress;
+        { setState && mainText && setState(mainText) };
+      }}>
       <LinearGradient
         colors={['#6F6F6F', '#393939', '#232323']}
         style={styles.linearGradient}>
         <Text style={styles.textTop}>{topText}</Text>
         <View>
-          <Text style={[styles.mainText, !!fontSize && {fontSize}]}>{mainText}</Text>
-      </View>
-      <Text style={styles.textBottom}>{bottomText}</Text>
-    </LinearGradient>
+          <Text style={[styles.mainText, !!fontSize && { fontSize }]}>{mainText}</Text>
+        </View>
+        <Text style={styles.textBottom}>{bottomText}</Text>
+      </LinearGradient>
     </TouchableHighlight >
   )
 }
@@ -40,7 +43,6 @@ const styles = StyleSheet.create({
   mainText: {
     color: "#fff",
     fontSize: 36,
-    // fontWeight: "bold",
     fontFamily: "Arial",
   },
   textTop: {
