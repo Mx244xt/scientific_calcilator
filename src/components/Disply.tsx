@@ -11,8 +11,8 @@ const Disply = ({ displayText }: Props) => {
     <ScrollView style={styles.container}>
       {displayText.map((item, i) => {
         return (
-          <View style={styles.textContainer}>
-            <TextInput key={i} style={styles.text}
+          <View key={i} style={styles.textContainer}>
+            <TextInput style={styles.text}
               inputMode="none"
               multiline={true}
               value={item}
