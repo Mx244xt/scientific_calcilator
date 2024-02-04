@@ -73,7 +73,7 @@ const operateTable: OperateKeyType = {
     fn: () => { return Math.PI; }
   },
   //階乗
-  'n!': {
+  '!': {
     Priority: 18, Type: "op", Arity: 1, Associative_law: "L",
     fn: (L: number) => { return factorial(L); }
   },
