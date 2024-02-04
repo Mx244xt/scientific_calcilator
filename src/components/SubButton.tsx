@@ -26,7 +26,7 @@ const SubButton = ({ setState, isAlt, buttonText, displayText, calcText, bgColor
         }
       >
         <LinearGradient
-          colors={displayText.mainText !== "ALT" ? bgColor ? [bgColor[0], bgColor[1], bgColor[2]] : ['#E4E6F3', '#80828D', '#5E5F61'] : isAlt && bgColor ? [bgColor[0], bgColor[1], bgColor[2]] : ["orange", "orange", "red"]}
+          colors={displayText.mainText !== "ALT" ? bgColor ? [bgColor[0], bgColor[1], bgColor[2]] : ['#E4E6F3', '#80828D', '#5E5F61'] : isAlt && bgColor ? [bgColor[0], bgColor[1], bgColor[2]] : ["#ff6801", "#cb5300", "#9d4000"]}
           style={styles.linearGradient}>
           <Text style={[styles.mainText, !!fontColor && { color: fontColor }, !calcText.mainText && { opacity: 0.3 }]}>{buttonText.mainText}</Text>
         </LinearGradient>

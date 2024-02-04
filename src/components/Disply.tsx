@@ -1,17 +1,23 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, TextInput, View } from 'react-native'
 import React from 'react'
 
 type Props = {
-  text: string[]
+  displayText: string[];
 }
 
-const Disply = ({ text }: Props) => {
+const Disply = ({ displayText }: Props) => {
+
   return (
     <ScrollView style={styles.container}>
-      {text.map((item, i) => {
+      {displayText.map((item, i) => {
         return (
           <View style={styles.textContainer}>
-            <Text key={i} style={styles.text} adjustsFontSizeToFit>{item}</Text>
+            <TextInput key={i} style={styles.text}
+              inputMode="none"
+              multiline={true}
+              value={item}
+            >
+            </TextInput>
           </View>
         )
       })}
@@ -30,7 +36,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   textContainer: {
-    flex:1,
+    flex: 1,
   },
   text: {
     fontSize: 32,

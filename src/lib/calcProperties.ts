@@ -13,7 +13,7 @@ const calcProperties = () => {
           mainText: "ALT",
           topLeftText: "ALT",
         },
-        bgColor: ["yellow", "yellow", "yellow"],
+        bgColor: ["#fffa00", "#c6c200", "#9d9a00"],
       },
       {
         buttonText: {
@@ -26,7 +26,7 @@ const calcProperties = () => {
         },
         calcText: {
         },
-        bgColor: ["green", "green", "green"],
+        bgColor: ["#00ff17", "#00c817", "#008017"],
         fontColor: "white",
       },
       {
@@ -325,7 +325,7 @@ const calcProperties = () => {
         },
         calcText: {
           mainText: "9",
-          //TODO topText: "Mod",
+          topText: "%",
         },
       },
       {

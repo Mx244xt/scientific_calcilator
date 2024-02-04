@@ -22,9 +22,10 @@ const HomeScreen = () => {
         calcTexts.pop();
         setDisplaytexts([""])
         setCalcTexts([""])
+        setIsAlt(true);
         break;
       case "ALT":
-        setIsAlt(!isAlt);
+        if (isAlt == true) setIsAlt(!isAlt);
         break;
       case "BS":
         setDisplaytexts([...displaytexts.slice(0, -1), displaytexts.slice(-1)[0].slice(0, -1)]);
@@ -62,7 +63,7 @@ const HomeScreen = () => {
         <Header />
       </View>
       <View style={styles.disply}>
-        <Disply text={displaytexts} />
+        <Disply displayText={displaytexts} />
       </View>
       <View style={styles.subButton}>
         {subButtonObj.map((items, i) => (
