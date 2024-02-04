@@ -80,6 +80,7 @@ const rpnCalculation = (rpn: string) => {
     return Number(result.toPrecision(12));
   } catch (error) {
     console.error(error);
+    return "Calculation error";
   }
 };
 

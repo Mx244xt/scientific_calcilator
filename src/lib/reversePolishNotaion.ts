@@ -1,13 +1,13 @@
 import operateTable from "./operateTable";
 
 const reversePolishNotaion = (formula: string) => {
-  if (typeof formula !== "string") { throw new Error("引数が無効です。(Invalid argument.)"); }
   let result: string[] = [];
   let operator_stack: string[][] = [[]];
   let operator_depth: number = 0;
   let unary_operator: boolean = true;
   let operator: string | null = null;
   try {
+    if (typeof formula !== "string") { throw new Error("引数が無効です。(Invalid argument.)"); }
     while (formula.length > 0) {
 
       formula = formula.replace(/^(\s|,)+/, "");
@@ -29,7 +29,7 @@ const reversePolishNotaion = (formula: string) => {
 
       for (let key in operateTable) {
         const chack = formula.slice(-1);
-        if (chack === key && chack !== ")") { throw new Error("末尾の演算子は無効です。(Trailing operators are invalid.)") }
+        if (chack === key && chack !== ")" && chack !== "π") { throw new Error("末尾の演算子は無効です。(Trailing operators are invalid.)") }
         if (formula.indexOf(key) === 0) {
           operator = key;
           formula = formula.substring(key.length);
@@ -111,7 +111,9 @@ const reversePolishNotaion = (formula: string) => {
     return null;
 
   } catch (error) {
-    return error;
+    console.error(error);
+    console.log(typeof (Error("Calculation error")))
+    return "Calculation error";
   }
 };
 
