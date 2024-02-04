@@ -39,7 +39,7 @@ const calcProperties = () => {
           topLeftText: "DLGS",
         },
         calcText: {
-          // mainText: "DEL",
+          mainText: "DEL",
         },
       },
       {
@@ -239,7 +239,7 @@ const calcProperties = () => {
         },
         calcText: {
           mainText: "**(",
-          topLeftText: "* √("
+          topLeftText: "*√("
         },
       },
       {
@@ -252,8 +252,8 @@ const calcProperties = () => {
           topLeftText: "3×√("
         },
         calcText: {
-          mainText: "√",
-          topLeftText: "3 * √"
+          mainText: "√(",
+          topLeftText: "3*√("
         },
       },
       {
@@ -267,7 +267,7 @@ const calcProperties = () => {
         },
         calcText: {
           mainText: "π",
-          topLeftText: "n!"
+          topLeftText: "!"
         },
       },
       {
@@ -280,8 +280,8 @@ const calcProperties = () => {
           topLeftText: "H:M:S ⇆"
         },
         calcText: {
-          // mainText: `dns`,
-          // topLeftText: "time"
+          //TODO mainText: `dns`,
+          //TODO topLeftText: "time"
         },
       }
     ]
@@ -300,7 +300,7 @@ const calcProperties = () => {
         },
         calcText: {
           mainText: "7",
-          // topText: "Const",
+          //TODO topText: "Const",
         },
       },
       {
@@ -371,7 +371,7 @@ const calcProperties = () => {
         },
         calcText: {
           mainText: "4",
-          // bottomText: "D",
+          //TODO bottomText: "D",
         },
       },
       {
@@ -385,7 +385,7 @@ const calcProperties = () => {
         },
         calcText: {
           mainText: "5",
-          // bottomText: "E",
+          //TODO bottomText: "E",
         },
       },
       {
@@ -399,7 +399,7 @@ const calcProperties = () => {
         },
         calcText: {
           mainText: "6",
-          // bottomText: "F",
+          //TODO bottomText: "F",
         },
       },
       {
@@ -413,7 +413,7 @@ const calcProperties = () => {
         },
         calcText: {
           mainText: "*",
-          // TODO topText: "nPr",
+          //TODO TODO topText: "nPr",
         },
       },
       {
@@ -443,7 +443,7 @@ const calcProperties = () => {
         },
         calcText: {
           mainText: "1",
-          // bottomText: "A",
+          //TODO bottomText: "A",
         },
       },
       {
@@ -457,7 +457,7 @@ const calcProperties = () => {
         },
         calcText: {
           mainText: "2",
-          // bottomText: "B",
+          //TODO bottomText: "B",
         },
       },
       {
@@ -471,7 +471,7 @@ const calcProperties = () => {
         },
         calcText: {
           mainText: "3",
-          // bottomText: "C",
+          //TODO bottomText: "C",
         },
       },
       {
@@ -487,8 +487,8 @@ const calcProperties = () => {
         },
         calcText: {
           mainText: "+",
-          // topText: "%",
-          // bottomText: "M+",
+          //TODO topText: "%",
+          //TODO bottomText: "M+",
         },
       },
       {
@@ -504,8 +504,8 @@ const calcProperties = () => {
         },
         calcText: {
           mainText: "-",
-          // topText: "(-)",
-          // bottomText: "M-",
+          //TODO topText: "(-)",
+          //TODO bottomText: "M-",
         },
       },
     ],
@@ -521,7 +521,7 @@ const calcProperties = () => {
         },
         calcText: {
           mainText: "0",
-          // bottomText: "MC",
+          //TODO bottomText: "MC",
         },
       },
       {
@@ -535,7 +535,7 @@ const calcProperties = () => {
         },
         calcText: {
           mainText: ".",
-          // bottomText: "M",
+          //TODO bottomText: "M",
         },
       },
       {
@@ -548,8 +548,8 @@ const calcProperties = () => {
           bottomText: "MR",
         },
         calcText: {
-          // mainText: "Exp",
-          // bottomText: "MR",
+          //TODO mainText: "Exp",
+          //TODO bottomText: "MR",
         },
         fontSize: 26,
       },
@@ -565,9 +565,9 @@ const calcProperties = () => {
           bottomText: "History",
         },
         calcText: {
-          // topText: "Ans",
-          // mainText: "Ans",
-          // bottomText: "History",
+          //TODO topText: "Ans",
+          //TODO mainText: "Ans",
+          //TODO bottomText: "History",
         },
         fontSize: 26,
       },
