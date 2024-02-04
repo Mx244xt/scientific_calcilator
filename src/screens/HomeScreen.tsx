@@ -28,26 +28,29 @@ const HomeScreen = () => {
         if (isAlt == true) setIsAlt(!isAlt);
         break;
       case "BS":
-        setDisplaytexts([...displaytexts.slice(0, -1), displaytexts.slice(-1)[0].slice(0, -1)]);
+                setDisplaytexts([...displaytexts.slice(0, -1), displaytexts.slice(-1)[0].slice(0, -1)]);
         setCalcTexts([...calcTexts.slice(0, -1), calcTexts.slice(-1)[0].slice(0, -1)]);
-        console.log(calcTexts);
+        break;
+      case "DEL":
+        setDisplaytexts(displaytexts.filter((e, index) => (index !== displaytexts.length - 1)));
+        setCalcTexts(calcTexts.filter((e, index) => (index !== calcTexts.length - 1)));
         break;
       case "=":
         try {
           if (calcTexts != null) {
-            console.log(calcTexts.slice(-1)[0]);
             const rpn = reversePolishNotaion(calcTexts.slice(-1)[0])
-            if (typeof (rpn) === "string") {
+                        if (typeof (rpn) === "string") {
               const result = rpnCalculation(rpn);
-              if (typeof (result) === "number") {
+                            if (typeof (result) === "number") {
                 setDisplaytexts([...displaytexts, "=" + result.toString(), ""]);
                 setCalcTexts([...calcTexts, "=" + result.toString(), ""]);
+                return;
               }
             }
-          }
+          } throw new Error
         } catch (error) {
           console.error(error);
-          setDisplaytexts(["Calcilation error"])
+          setDisplaytexts([...displaytexts, "=Calcilation error", ""]);
         }
         break;
       default:
@@ -127,5 +130,4 @@ const styles = StyleSheet.create({
   mainButton: {
     justifyContent: "flex-end"
   },
-
 });
