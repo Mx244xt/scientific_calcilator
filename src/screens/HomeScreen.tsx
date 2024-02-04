@@ -10,29 +10,51 @@ import reversePolishNotaion from '../lib/reversePolishNotaion';
 import rpnCalculation from '../lib/rpnCalculation';
 
 const HomeScreen = () => {
-  const [text, setText] = useState<string[]>([""]);
+  const [displaytexts, setDisplaytexts] = useState<string[]>([""]);
+  const [calcTexts, setCalcTexts] = useState<string[]>([""]);
+  const [isAlt, setIsAlt] = useState<boolean>(true);
   const { mainButtonObj, subButtonObj } = calcProperties();
-  const setState = (event: string) => {
-    if (event === "CLR") {
-      text.pop();
-      setText([""])
-    } else if (event === "=") {
-      try {
-
-        const rpn = reversePolishNotaion(text[0])
-        if (rpn != null) {
-          const result = rpnCalculation(rpn);
-          setText([result]);
+  const setState = (display: string, calc: string) => {
+    setIsAlt(true);
+    switch (calc) {
+      case "CLR":
+        displaytexts.pop();
+        calcTexts.pop();
+        setDisplaytexts([""])
+        setCalcTexts([""])
+        break;
+      case "ALT":
+        setIsAlt(!isAlt);
+        break;
+      case "BS":
+        setDisplaytexts([...displaytexts.slice(0, -1), displaytexts.slice(-1)[0].slice(0, -1)]);
+        setCalcTexts([...calcTexts.slice(0, -1), calcTexts.slice(-1)[0].slice(0, -1)]);
+        console.log(calcTexts);
+        break;
+      case "=":
+        try {
+          if (calcTexts != null) {
+            console.log(calcTexts.slice(-1)[0]);
+            const rpn = reversePolishNotaion(calcTexts.slice(-1)[0])
+            if (typeof (rpn) === "string") {
+              const result = rpnCalculation(rpn);
+              if (typeof (result) === "number") {
+                setDisplaytexts([...displaytexts, "=" + result.toString(), ""]);
+                setCalcTexts([...calcTexts, "=" + result.toString(), ""]);
+              }
+            }
+          }
+        } catch (error) {
+          console.error(error);
+          setDisplaytexts(["Calcilation error"])
         }
-      } catch (error) {
-        console.error("なんらかのエラー")
-      }
-
-    } else {
-      setText([text + event]);
+        break;
+      default:
+        setDisplaytexts([...displaytexts.slice(0, -1), displaytexts.slice(-1)[0] + display]);
+        setCalcTexts([...calcTexts.slice(0, -1), calcTexts.slice(-1)[0] + calc]);
+        break;
     }
   };
-  (text);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -40,7 +62,7 @@ const HomeScreen = () => {
         <Header />
       </View>
       <View style={styles.disply}>
-        <Disply text={text} />
+        <Disply text={displaytexts} />
       </View>
       <View style={styles.subButton}>
         {subButtonObj.map((items, i) => (
@@ -48,13 +70,13 @@ const HomeScreen = () => {
             {items.map((item: ButtonProps, j) => (
               <SubButton
                 key={`${i}-${j}`}
-                mainText={item.mainText}
-                onPress={item.onPress}
+                isAlt={isAlt}
                 setState={setState}
-                topRightText={item.topRightText}
-                topLeftText={item.topLeftText}
-                bgColor={item.bgColor}
+                buttonText={item.buttonText}
+                displayText={item.displayText}
+                calcText={item.calcText}
                 fontColor={item.fontColor}
+                bgColor={item.bgColor}
               />
             ))}
           </View>
@@ -66,11 +88,11 @@ const HomeScreen = () => {
             {items.map((item: ButtonProps, j) => (
               <MainButton
                 key={`${i}-${j}`}
-                onPress={item.onPress}
+                isAlt={isAlt}
                 setState={setState}
-                mainText={item.mainText}
-                topText={item.topText}
-                bottomText={item.bottomText}
+                buttonText={item.buttonText}
+                displayText={item.displayText}
+                calcText={item.calcText}
                 fontSize={item.fontSize}
               />
             ))}

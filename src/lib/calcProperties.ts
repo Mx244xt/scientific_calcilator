@@ -1,132 +1,288 @@
-import { useState } from "react";
-
 const calcProperties = () => {
-  const [texts, setTexts] = useState<string[]>([""]);
-
-  const onPress = (text: string) => {
-    if (text === "CLR") {
-      texts.pop()
-      setTexts([""])
-    } else {
-      setTexts([text])
-    }
-  };
-
   const subButtonObj = [
     [
       {
-        // mainText: "ALT",
-        onPress: () => onPress("ALT"),
-        bgColor: "yellow",
+        buttonText: {
+          mainText: "ALT",
+        },
+        displayText: {
+          mainText: "ALT",
+          topLeftText: "ALT",
+        },
+        calcText: {
+          mainText: "ALT",
+          topLeftText: "ALT",
+        },
+        bgColor: ["yellow", "yellow", "yellow"],
       },
       {
-        // mainText: "SHIFT",
-        onPress: () => onPress("SHIFT"),
-        topLeftText: "FSE",
-        bgColor: "green",
+        buttonText: {
+          mainText: "SHIFT",
+          topLeftText: "FSE",
+        },
+        displayText: {
+          mainText: "SHIFT",
+          topLeftText: "FSE",
+        },
+        calcText: {
+        },
+        bgColor: ["green", "green", "green"],
         fontColor: "white",
       },
       {
-        // mainText: "☒DEL",
-        onPress: () => onPress("DEL"),
-        topLeftText: "DLGS",
+        buttonText: {
+          mainText: "☒DEL",
+          topLeftText: "DLGS",
+        },
+        displayText: {
+          mainText: "DEL",
+          topLeftText: "DLGS",
+        },
+        calcText: {
+          // mainText: "DEL",
+        },
       },
       {
-        // mainText: "⌫BS",
-        onPress: () => onPress("BS"),
-        topLeftText: "DRG",
+        buttonText: {
+          mainText: "⌫BS",
+          topLeftText: "DRG",
+        },
+        displayText: {
+          mainText: "⌫BS",
+          topLeftText: "DRG",
+        },
+        calcText: {
+          mainText: "BS",
+        },
       },
       {
-        mainText: "CLR",
-        onPress: () => onPress("CLR"),
-        topRightText: "≡",
-        topLeftText: "MENU",
-        bgColor: "red",
+        buttonText: {
+          mainText: "CLR",
+          topRightText: "≡",
+          topLeftText: "MENU",
+        },
+        displayText: {
+          mainText: "CLR",
+          topRightText: "≡",
+          topLeftText: "MENU",
+        },
+        calcText: {
+          mainText: "CLR",
+        },
+        bgColor: ["#ff0000", "#d50000", "#9c0000"],
         fontColor: "white",
       },
     ],
     [
       {
-        // mainText: "△",
-        onPress: () => onPress("△"),
-        topRightText: "History",
-        topLeftText: "DEC",
+        buttonText: {
+          mainText: "△",
+          topRightText: "History",
+          topLeftText: "DEC",
+        },
+        displayText: {
+          mainText: "↑↑",
+          topRightText: "History",
+          topLeftText: "DEC",
+        },
+        calcText: {
+        },
       },
       {
-        // mainText: "▲",
-        onPress: () => onPress("▲"),
-        topLeftText: "HEX",
+        buttonText: {
+          mainText: "▲",
+          topLeftText: "HEX",
+        },
+        displayText: {
+          mainText: "↑",
+          topLeftText: "HEX",
+        },
+        calcText: {
+        },
       },
       {
-        // mainText: "▼",
-        onPress: () => onPress("▼"),
-        topLeftText: "OCT",
+        buttonText: {
+          mainText: "▼",
+          topLeftText: "OCT",
+        },
+        displayText: {
+          mainText: "↓",
+          topLeftText: "OCT",
+        },
+        calcText: {
+        },
       },
       {
-        // mainText: "◀︎",
-        onPress: () => onPress("◀︎"),
-        topRightText: "◀︎ENG",
-        topLeftText: "BIN",
+        buttonText: {
+          mainText: "◀︎",
+          topRightText: "◀︎ENG",
+          topLeftText: "BIN",
+        },
+        displayText: {
+          mainText: "←",
+          topRightText: "←ENG",
+          topLeftText: "BIN",
+        },
+        calcText: {
+        },
       },
       {
-        // mainText: "▶︎",
-        onPress: () => onPress("▶︎"),
-        topRightText: "ENG▶︎",
-        topLeftText: "ads",
+        buttonText: {
+          mainText: "▶︎",
+          topRightText: "ENG▶︎",
+          topLeftText: "ads",
+        },
+        displayText: {
+          mainText: "→",
+          topRightText: "ENG→",
+          topLeftText: "ads",
+        },
+        calcText: {
+        },
       },
     ],
     [
       {
-        mainText: "sin",
-        onPress: () => onPress("sin"),
-        topLeftText: "sinˉ ¹"
+        buttonText: {
+          mainText: "sin",
+          topLeftText: "sinˉ ¹"
+        },
+        displayText: {
+          mainText: "sin(",
+          topLeftText: "acos("
+        },
+        calcText: {
+          mainText: "sin(",
+          topLeftText: "asin("
+        },
       },
       {
-        mainText: "cos",
-        onPress: () => onPress("cos"),
-        topLeftText: "cosˉ ¹"
+        buttonText: {
+          mainText: "cos",
+          topLeftText: "cosˉ ¹"
+        },
+        displayText: {
+          mainText: "cos(",
+          topLeftText: "acos("
+        },
+        calcText: {
+          mainText: "cos(",
+          topLeftText: "acos("
+        },
       },
       {
-        mainText: "tan",
-        onPress: () => onPress("tan"),
-        topLeftText: "tanˉ ¹"
+        buttonText: {
+          mainText: "tan",
+          topLeftText: "tanˉ ¹"
+        },
+        displayText: {
+          mainText: "tan(",
+          topLeftText: "atan("
+        },
+        calcText: {
+          mainText: "tan(",
+          topLeftText: "atan("
+        },
       },
       {
-        // mainText: "log",
-        onPress: () => onPress("log"),
-        topLeftText: "10ˣ"
+        buttonText: {
+          mainText: "log",
+          topLeftText: "10ˣ"
+        },
+        displayText: {
+          mainText: "log(",
+          topLeftText: "10^("
+        },
+        calcText: {
+          mainText: "log(",
+          topLeftText: "10**("
+        },
       },
       {
-        // mainText: "In",
-        onPress: () => onPress("in"),
-        topLeftText: "eˣ"
+        buttonText: {
+          mainText: "In",
+          topLeftText: "eˣ"
+        },
+        displayText: {
+          mainText: "In(",
+          topLeftText: "e^("
+        },
+        calcText: {
+          mainText: "in(",
+          topLeftText: "e("
+        },
       }
     ],
     [
       {
-        // mainText: "X²",
-        onPress: () => onPress("^2"),
-        topLeftText: "Xˉ ¹"
+        buttonText: {
+          mainText: "X²",
+          topLeftText: "Xˉ ¹"
+        },
+        displayText: {
+          mainText: "^2",
+          topLeftText: "^(-1)"
+        },
+        calcText: {
+          mainText: "** 2",
+          topLeftText: "** _1"
+        },
       },
       {
-        // mainText: "Xʸ",
-        onPress: () => onPress("^"),
-        topLeftText: "ˣ √"
+        buttonText: {
+          mainText: "Xʸ",
+          topLeftText: "ˣ √"
+        },
+        displayText: {
+          mainText: "^(",
+          topLeftText: "×√("
+        },
+        calcText: {
+          mainText: "**(",
+          topLeftText: "* √("
+        },
       },
       {
-        // mainText: "√",
-        onPress: () => onPress("√"),
-        topLeftText: "³ √"
+        buttonText: {
+          mainText: "√(",
+          topLeftText: "³ √("
+        },
+        displayText: {
+          mainText: "√(",
+          topLeftText: "3×√("
+        },
+        calcText: {
+          mainText: "√",
+          topLeftText: "3 * √"
+        },
       },
       {
-        // mainText: "π",
-        onPress: () => onPress("π"),
-        topLeftText: "n!"
+        buttonText: {
+          mainText: "π",
+          topLeftText: "n!"
+        },
+        displayText: {
+          mainText: "π",
+          topLeftText: "!"
+        },
+        calcText: {
+          mainText: "π",
+          topLeftText: "n!"
+        },
       },
       {
-        // mainText: `º ' "`,
-        onPress: () => onPress("time"),
-        topLeftText: "H:M:S ⇆"
+        buttonText: {
+          mainText: `º ' "`,
+          topLeftText: "H:M:S ⇆"
+        },
+        displayText: {
+          mainText: `º ' "`,
+          topLeftText: "H:M:S ⇆"
+        },
+        calcText: {
+          // mainText: `dns`,
+          // topLeftText: "time"
+        },
       }
     ]
   ];
@@ -134,114 +290,297 @@ const calcProperties = () => {
   const mainButtonObj = [
     [
       {
-        mainText: "7",
-        onPress: () => onPress("7"),
-        topText: "Const",
+        buttonText: {
+          mainText: "7",
+          topText: "Const",
+        },
+        displayText: {
+          mainText: "7",
+          topText: "Const",
+        },
+        calcText: {
+          mainText: "7",
+          // topText: "Const",
+        },
       },
       {
-        mainText: "8",
-        onPress: () => onPress("8"),
+        buttonText: {
+          mainText: "8",
+        },
+        displayText: {
+          mainText: "8",
+        },
+        calcText: {
+          mainText: "8",
+        },
       },
       {
-        mainText: "9",
-        onPress: () => onPress("9"),
-        topText: "Mod",
+        buttonText: {
+          mainText: "9",
+          topText: "Mod",
+        },
+        displayText: {
+          mainText: "9",
+          topText: "Mod",
+        },
+        calcText: {
+          mainText: "9",
+          //TODO topText: "Mod",
+        },
       },
       {
-        mainText: "(",
-        onPress: () => onPress("("),
-        topText: "Pol",
+        buttonText: {
+          mainText: "(",
+          topText: "Pol",
+        },
+        displayText: {
+          mainText: "(",
+          topText: "Pol",
+        },
+        calcText: {
+          mainText: "(",
+          //TODO topText: "Pol",
+        },
       },
       {
-        mainText: ")",
-        onPress: () => onPress(")"),
-        topText: "Rec",
-        bottomText: "",
-      },
-    ],
-    [
-      {
-        mainText: "4",
-        onPress: () => onPress("4"),
-        bottomText: "D",
-      },
-      {
-        mainText: "5",
-        onPress: () => onPress("5"),
-        bottomText: "E",
-      },
-      {
-        mainText: "6",
-        onPress: () => onPress("6"),
-        bottomText: "F",
-      },
-      {
-        mainText: "*",
-        onPress: () => onPress("×"),
-        topText: "nPr",
-      },
-      {
-        mainText: "/",
-        onPress: () => onPress("÷"),
-        topText: "nCr",
-      },
-    ],
-    [
-      {
-        mainText: "1",
-        onPress: () => onPress("1"),
-        bottomText: "A",
-      },
-      {
-        mainText: "2",
-        onPress: () => onPress("2"),
-        bottomText: "B",
-      },
-      {
-        mainText: "3",
-        onPress: () => onPress("3"),
-        bottomText: "C",
-      },
-      {
-        mainText: "+",
-        onPress: () => onPress("+"),
-        topText: "%",
-        bottomText: "M+",
-      },
-      {
-        mainText: "-",
-        onPress: () => onPress("-"),
-        topText: "(-)",
-        bottomText: "M-",
+        buttonText: {
+          topText: "Rec",
+          mainText: ")",
+          bottomText: "",
+        },
+        displayText: {
+          topText: "Rec",
+          mainText: ")",
+          bottomText: "",
+        },
+        calcText: {
+          //TODO topText: "Rec",
+          mainText: ")",
+        },
       },
     ],
     [
       {
-        mainText: "0",
-        onPress: () => onPress("0"),
-        bottomText: "MC",
+        buttonText: {
+          mainText: "4",
+          bottomText: "D",
+        },
+        displayText: {
+          mainText: "4",
+          bottomText: "D",
+        },
+        calcText: {
+          mainText: "4",
+          // bottomText: "D",
+        },
       },
       {
-        mainText: ".",
-        onPress: () => onPress("."),
-        bottomText: "M",
+        buttonText: {
+          mainText: "5",
+          bottomText: "E",
+        },
+        displayText: {
+          mainText: "5",
+          bottomText: "E",
+        },
+        calcText: {
+          mainText: "5",
+          // bottomText: "E",
+        },
       },
       {
-        // mainText: "Exp",
-        onPress: () => onPress("Exp"),
-        bottomText: "MR",
+        buttonText: {
+          mainText: "6",
+          bottomText: "F",
+        },
+        displayText: {
+          mainText: "6",
+          bottomText: "F",
+        },
+        calcText: {
+          mainText: "6",
+          // bottomText: "F",
+        },
+      },
+      {
+        buttonText: {
+          mainText: "×",
+          topText: "nPr",
+        },
+        displayText: {
+          mainText: "×",
+          topText: "nPr",
+        },
+        calcText: {
+          mainText: "*",
+          // TODO topText: "nPr",
+        },
+      },
+      {
+        buttonText: {
+          mainText: "÷",
+          topText: "nCr",
+        },
+        displayText: {
+          mainText: "÷",
+          topText: "nCr",
+        },
+        calcText: {
+          mainText: "/",
+          //TODO topText: "nCr",
+        },
+      },
+    ],
+    [
+      {
+        buttonText: {
+          mainText: "1",
+          bottomText: "A",
+        },
+        displayText: {
+          mainText: "1",
+          bottomText: "A",
+        },
+        calcText: {
+          mainText: "1",
+          // bottomText: "A",
+        },
+      },
+      {
+        buttonText: {
+          mainText: "2",
+          bottomText: "B",
+        },
+        displayText: {
+          mainText: "2",
+          bottomText: "B",
+        },
+        calcText: {
+          mainText: "2",
+          // bottomText: "B",
+        },
+      },
+      {
+        buttonText: {
+          mainText: "3",
+          bottomText: "C",
+        },
+        displayText: {
+          mainText: "3",
+          bottomText: "C",
+        },
+        calcText: {
+          mainText: "3",
+          // bottomText: "C",
+        },
+      },
+      {
+        buttonText: {
+          mainText: "+",
+          topText: "%",
+          bottomText: "M+",
+        },
+        displayText: {
+          mainText: "+",
+          topText: "%",
+          bottomText: "M+",
+        },
+        calcText: {
+          mainText: "+",
+          // topText: "%",
+          // bottomText: "M+",
+        },
+      },
+      {
+        buttonText: {
+          mainText: "-",
+          topText: "(-)",
+          bottomText: "M-",
+        },
+        displayText: {
+          mainText: "-",
+          topText: "(-)",
+          bottomText: "M-",
+        },
+        calcText: {
+          mainText: "-",
+          // topText: "(-)",
+          // bottomText: "M-",
+        },
+      },
+    ],
+    [
+      {
+        buttonText: {
+          mainText: "0",
+          bottomText: "MC",
+        },
+        displayText: {
+          mainText: "0",
+          bottomText: "MC",
+        },
+        calcText: {
+          mainText: "0",
+          // bottomText: "MC",
+        },
+      },
+      {
+        buttonText: {
+          mainText: ".",
+          bottomText: "M",
+        },
+        displayText: {
+          mainText: ".",
+          bottomText: "M",
+        },
+        calcText: {
+          mainText: ".",
+          // bottomText: "M",
+        },
+      },
+      {
+        buttonText: {
+          mainText: "Exp",
+          bottomText: "MR",
+        },
+        displayText: {
+          mainText: "Exp",
+          bottomText: "MR",
+        },
+        calcText: {
+          // mainText: "Exp",
+          // bottomText: "MR",
+        },
         fontSize: 26,
       },
       {
-        // mainText: "Ans",
-        onPress: () => onPress("Ans"),
-        topText: "Ans",
-        bottomText: "History",
+        buttonText: {
+          topText: "Ans",
+          mainText: "Ans",
+          bottomText: "History",
+        },
+        displayText: {
+          topText: "Ans",
+          mainText: "Ans",
+          bottomText: "History",
+        },
+        calcText: {
+          // topText: "Ans",
+          // mainText: "Ans",
+          // bottomText: "History",
+        },
         fontSize: 26,
       },
       {
-        mainText: "=",
-        onPress: () => onPress("="),
+        buttonText: {
+          mainText: "=",
+        },
+        displayText: {
+          mainText: "=",
+        },
+        calcText: {
+          mainText: "=",
+        },
       },
     ],
   ];

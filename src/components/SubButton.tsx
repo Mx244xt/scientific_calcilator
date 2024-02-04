@@ -3,26 +3,32 @@ import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ButtonProps } from '../types/button';
 
-const SubButton = ({ setState, onPress, mainText, topRightText = "", topLeftText = "", bgColor, fontColor }: ButtonProps) => {
+const SubButton = ({ setState, isAlt, buttonText, displayText, calcText, bgColor, fontColor }: ButtonProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.textTopContainer}>
-        {topLeftText && <Text style={styles.textLeftTop} >{topLeftText}</Text>}
-        {topRightText && <Text style={styles.textRightTop} >{topRightText}</Text>}
+        {displayText.topLeftText && <Text style={[styles.textLeftTop, !calcText.topLeftText && { opacity: 0.3 }]} >{displayText.topLeftText}</Text>}
+        {displayText.topRightText && <Text style={[styles.textRightTop, !calcText.topRightText && { opacity: 0.3 }]} >{displayText.topRightText}</Text>}
       </View>
       <TouchableHighlight
         style={styles.TouchableHighlight}
         activeOpacity={0.1}
         underlayColor="#FFA800"
-        onPress={() => {
-          onPress;
-          { setState && setState(mainText) };
-        }}
+        onPress={() => isAlt
+          ? setState &&
+          calcText.mainText &&
+          displayText.mainText &&
+          setState(displayText.mainText, calcText.mainText)
+          : setState &&
+          calcText.topLeftText &&
+          displayText.topLeftText &&
+          setState(displayText.topLeftText, calcText.topLeftText)
+        }
       >
         <LinearGradient
-          colors={bgColor ? [bgColor, bgColor] : ['#E4E6F3', '#80828D', '#5E5F61']}
+          colors={displayText.mainText !== "ALT" ? bgColor ? [bgColor[0], bgColor[1], bgColor[2]] : ['#E4E6F3', '#80828D', '#5E5F61'] : isAlt && bgColor ? [bgColor[0], bgColor[1], bgColor[2]] : ["orange", "orange", "red"]}
           style={styles.linearGradient}>
-          <Text style={[styles.mainText, !!fontColor && { color: fontColor }]}>{mainText}</Text>
+          <Text style={[styles.mainText, !!fontColor && { color: fontColor }, !calcText.mainText && { opacity: 0.3 }]}>{buttonText.mainText}</Text>
         </LinearGradient>
       </TouchableHighlight>
     </View>

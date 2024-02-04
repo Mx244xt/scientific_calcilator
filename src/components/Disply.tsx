@@ -10,7 +10,9 @@ const Disply = ({ text }: Props) => {
     <ScrollView style={styles.container}>
       {text.map((item, i) => {
         return (
-          <Text key={i} style={styles.text} adjustsFontSizeToFit>{item}</Text>
+          <View style={styles.textContainer}>
+            <Text key={i} style={styles.text} adjustsFontSizeToFit>{item}</Text>
+          </View>
         )
       })}
     </ScrollView>
@@ -26,6 +28,9 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
     marginHorizontal: 20,
+  },
+  textContainer: {
+    flex:1,
   },
   text: {
     fontSize: 32,
