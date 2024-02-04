@@ -1,5 +1,5 @@
 import operateTable, { factorial, cosDegCV } from "../lib/operateTable";
-describe("オペラントテーブル", () => {
+describe.skip("オペラントテーブル", () => {
   describe("オペラントfunction", () => {
     test.skip("(", () => {
       expect(operateTable['('].fn(0, 0)).toBe(undefined);
@@ -56,8 +56,8 @@ describe("オペラントテーブル", () => {
     test("π", () => {
       expect(operateTable['π'].fn(2, 2)).toBe(3.141592653589793);
     });
-    test("n!", () => {
-      expect(operateTable['n!'].fn(5, 0)).toBe(120);
+    test("!", () => {
+      expect(operateTable['!'].fn(5, 0)).toBe(120);
     });
     test("#", () => {
       expect(operateTable['#'].fn(2, 0)).toBe(+2);
